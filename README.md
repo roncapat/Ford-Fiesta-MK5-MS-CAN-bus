@@ -128,8 +128,12 @@ The car has an onboard RTC that works independently from the radio clock (it wor
 </tbody>
 </table>
 
-### AirBag status
+### AirBag status 
+
+<img src="K01_0.png" data-canonical-src="K01_0.png" width="50"/>
+
 The AirBag dashboard light is commanded either ON or OFF depending with the 5th byte of this message. 
+
 <table class="tg">
 <thead>
   <tr>
@@ -232,6 +236,9 @@ Status is a bitmask: the 1st byte is the algebraic sum of these condition codes,
 
 
 ### Arrows status
+
+<img src="H34.png" data-canonical-src="H34.png" width="50"/>
+
 Arrows status is signalled setting or clearing bits in the 1st byte of this message.
 
 <table>
@@ -305,6 +312,9 @@ Periodically, the veihcle ID (lower part of VIN, so the serial number plus other
 </table>
 
 ### Front beams status
+
+<img src="H35.png" data-canonical-src="H35.png" width="50"/> <img src="H36.png" data-canonical-src="H36.png" width="50"/>
+
 Front beams status is signalled setting or clearing bits in the 1st byte of this message. Notice that, since this message is just for dashboard LEDs, parking lights cannot be distinguished from low beams, as they share the same LED indicator.
 
 <table>
