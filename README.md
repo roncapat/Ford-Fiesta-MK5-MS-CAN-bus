@@ -280,6 +280,72 @@ Status is a bitmask: the 1st byte is the algebraic sum of these condition codes,
 
 
 ### Vehicle ID
+Periodically, the veihcle ID (lower part of VIN, so the serial number plus other codes signalling production date) is broadcasted.
+
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x4F3</td>
+    <td colspan="8">&lt;vehicle ID&gt;</td>
+  </tr>
+</tbody>
+</table>
 
 ### Front beams status
+Front beams status is signalled setting or clearing bits in the 1st byte of this message. Notice that, since this message is just for dashboard LEDs, parking lights cannot be distinguished from low beams, as they share the same LED indicator.
 
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x286</td>
+    <td>&lt;0x10+status&gt;</td>
+    <td colspan="7">(unspecified)</td>
+  </tr>
+</tbody>
+</table>
+
+Status is a bitmask: the 1st byte is the algebraic sum of 0x10 and these condition codes, whenever applicable.
+<table>
+<thead>
+  <tr>
+    <th>Status</th>
+    <th>Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Parking lights / low beams</td>
+    <td>0x80</td>
+  </tr>
+  <tr>
+    <td>High beams</td>
+    <td>0x40</td>
+  </tr>
+</tbody>
+</table>
