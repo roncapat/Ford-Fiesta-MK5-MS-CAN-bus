@@ -129,7 +129,7 @@ The car has an onboard RTC that works independently from the radio clock (it wor
 </table>
 
 ### AirBag status
-The AirBag dashboard light is commanded ON depending with the 5th byte of this message. 
+The AirBag dashboard light is commanded either ON or OFF depending with the 5th byte of this message. 
 <table class="tg">
 <thead>
   <tr>
@@ -151,18 +151,133 @@ The AirBag dashboard light is commanded ON depending with the 5th byte of this m
     <td class="tg-c3ow">0x0</td>
     <td class="tg-c3ow">0x0</td>
     <td class="tg-c3ow">0x0</td>
-    <td class="tg-0lax">0xC0</td>
+    <td class="tg-0lax">&lt;status&gt;</td>
     <td class="tg-0lax">0x0</td>
     <td class="tg-c3ow">0x0</td>
     <td class="tg-c3ow">0x0</td>
   </tr>
 </tbody>
 </table>
-AirBag dashboard light is commanded OFF if the 5th byte is cleared instead (0x0).
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">Status</th>
+    <th class="tg-c3ow">Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">ON</td>
+    <td class="tg-c3ow">0xC0</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">OFF</td>
+    <td class="tg-c3ow">0x0</td>
+  </tr>
+
+</tbody>
+</table>
 
 ### Doors status
+Doors status is signalled setting or clearing bits in the 1st byte of this message.
+
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x433</td>
+    <td>&lt;status&gt;</td>
+    <td colspan="7">(unspecified)</td>
+  </tr>
+</tbody>
+</table>
+
+Status is a bitmask: the 1st byte is the algebraic sum of these condition codes, whenever applicable.
+
+<table>
+<thead>
+  <tr>
+    <th>Status</th>
+    <th>Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Front left open</td>
+    <td>0x80</td>
+  </tr>
+  <tr>
+    <td>Front right open</td>
+    <td>0x40</td>
+  </tr>
+  <tr>
+    <td>Trunk open</td>
+    <td>0x08</td>
+  </tr>
+</tbody>
+</table>
+
 
 ### Arrows status
+Arrows status is signalled setting or clearing bits in the 1st byte of this message.
+
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x265</td>
+    <td>&lt;status&gt;</td>
+    <td colspan="7">(unspecified)</td>
+  </tr>
+</tbody>
+</table>
+
+Status is a bitmask: the 1st byte is the algebraic sum of these condition codes, whenever applicable.
+
+<table>
+<thead>
+  <tr>
+    <th>Status</th>
+    <th>Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Left ON</td>
+    <td>0x20</td>
+  </tr>
+  <tr>
+    <td>Right ON</td>
+    <td>0x40</td>
+  </tr>
+</tbody>
+</table>
+
 
 ### Vehicle ID
 
