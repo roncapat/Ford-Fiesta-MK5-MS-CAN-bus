@@ -74,3 +74,56 @@ The extended format is composed by one header message containing the length of t
   </tr>
 </tbody>
 </table>
+
+### Radio OFF
+When the radio is OFF this message is broadcasted.
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">ID</th>
+    <th class="tg-c3ow">1</th>
+    <th class="tg-c3ow">2</th>
+    <th class="tg-c3ow">3</th>
+    <th class="tg-c3ow">4</th>
+    <th class="tg-c3ow">5</th>
+    <th class="tg-c3ow">6</th>
+    <th class="tg-c3ow">7</th>
+    <th class="tg-c3ow">8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">0x4C0</td>
+    <td class="tg-c3ow">0x2</td>
+    <td class="tg-c3ow">0x34</td>
+    <td class="tg-c3ow" colspan="6">0</td>
+  </tr>
+</tbody>
+</table>
+
+### Date & Time
+The car has an onboard RTC that works independently from the radio clock (it works even if the radio is disconnected at all). The date and time are broadcasted with 1 second resolution.
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">ID</th>
+    <th class="tg-c3ow">1</th>
+    <th class="tg-c3ow">2</th>
+    <th class="tg-c3ow">3</th>
+    <th class="tg-c3ow">4</th>
+    <th class="tg-c3ow">5</th>
+    <th class="tg-c3ow">6</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">0x80</td>
+    <td class="tg-c3ow">year (two digits)</td>
+    <td class="tg-c3ow">month</td>
+    <td class="tg-c3ow">day</td>
+    <td class="tg-c3ow">hours</td>
+    <td class="tg-c3ow">minutes</td>
+    <td class="tg-c3ow">seconds</td>
+  </tr>
+</tbody>
+</table>
