@@ -127,3 +127,44 @@ The car has an onboard RTC that works independently from the radio clock (it wor
   </tr>
 </tbody>
 </table>
+
+### AirBag status
+The AirBag dashboard light is commanded ON depending with the 5th byte of this message. 
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">ID</th>
+    <th class="tg-c3ow">1</th>
+    <th class="tg-c3ow">2</th>
+    <th class="tg-c3ow">3</th>
+    <th class="tg-c3ow">4</th>
+    <th class="tg-0lax">5</th>
+    <th class="tg-0lax">6</th>
+    <th class="tg-c3ow">7</th>
+    <th class="tg-c3ow">8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">0x460</td>
+    <td class="tg-c3ow">0x0</td>
+    <td class="tg-c3ow">0x0</td>
+    <td class="tg-c3ow">0x0</td>
+    <td class="tg-c3ow">0x0</td>
+    <td class="tg-0lax">0xC0</td>
+    <td class="tg-0lax">0x0</td>
+    <td class="tg-c3ow">0x0</td>
+    <td class="tg-c3ow">0x0</td>
+  </tr>
+</tbody>
+</table>
+AirBag dashboard light is commanded OFF if the 5th byte is cleared instead (0x0).
+
+### Doors status
+
+### Arrows status
+
+### Vehicle ID
+
+### Front beams status
+
