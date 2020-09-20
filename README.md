@@ -365,3 +365,34 @@ Status is a bitmask: the 1st byte is the algebraic sum of 0x10 and these conditi
   </tr>
 </tbody>
 </table>
+
+### Gas pedal
+Gas pedal position is read by a potentiometer or an encoder and sent to the drive-by-wire system. 
+
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x201</td>
+    <td colspan="6">(unspecified)</td>
+    <td colspan="2">&lt;0x80+gas&gt;</td>
+  </tr>
+</tbody>
+</table>
+
+where the position of the pedal can be translated in percentage with the following formula:
+```
+gas_percent = gas*100/50944
+```
