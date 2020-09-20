@@ -366,8 +366,9 @@ Status is a bitmask: the 1st byte is the algebraic sum of 0x10 and these conditi
 </tbody>
 </table>
 
-### Gas pedal
-Gas pedal position is read by a potentiometer or an encoder and sent to the drive-by-wire system. 
+### Gas pedal / RPM / Speed
+
+Gas pedal position, engine RPM and speed (Km/h) are contained in the same packet.
 
 <table>
 <thead>
@@ -386,7 +387,9 @@ Gas pedal position is read by a potentiometer or an encoder and sent to the driv
 <tbody>
   <tr>
     <td>0x201</td>
-    <td colspan="6">(unspecified)</td>
+    <td colspan="2">rpm</td>
+    <td colspan="2">(unspecified)</td>
+    <td colspan="2">speed</td>
     <td colspan="2">&lt;0x80+gas&gt;</td>
   </tr>
 </tbody>
@@ -395,4 +398,67 @@ Gas pedal position is read by a potentiometer or an encoder and sent to the driv
 where the position of the pedal can be translated in percentage with the following formula:
 ```
 gas_percent = gas*100/50944
+```
+while speed in Km/h can be obtained with:
+```
+km_h = speed/100
+```
+
+### Key position
+
+Key can be either in position 1, 2 or 3. 
+
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x285</td>
+    <td colspan="1">key</td>
+    <td colspan="2">(unspecified)</td>
+  </tr>
+</tbody>
+</table>
+
+where the position can be obtained reading bits 5 and 6 of the first byte:
+```
+key_position = (key & 0x30) >> 4
+```
+
+### Battery voltage
+
+Battery voltage is expressed in tenths of Volt.
+
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x428</td>
+    <td colspan="1">(unspecified)</td>
+    <td colspan="1">battery</td>
+    <td colspan="5">(unspecified)</td>
+  </tr>
+</tbody>
+</table>
+
+where battery status, in volts, can be obtained as:
+```
+battery_v = battery/10
 ```
