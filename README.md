@@ -311,9 +311,11 @@ Periodically, the veihcle ID (lower part of VIN, so the serial number plus other
 </tbody>
 </table>
 
-### Front beams status
 
-<img src="H35.png" data-canonical-src="H35.png" width="50"/> <img src="H36.png" data-canonical-src="H36.png" width="50"/>
+
+### Front beams / handbrake status
+
+<img src="H35.png" data-canonical-src="H35.png" width="50"/> <img src="H36.png" data-canonical-src="H36.png" width="50"/> <img src="K02_0.png" data-canonical-src="K02_0.png" width="50"/> 
 
 Front beams status is signalled setting or clearing bits in the 1st byte of this message. Notice that, since this message is just for dashboard LEDs, parking lights cannot be distinguished from low beams, as they share the same LED indicator.
 
@@ -334,7 +336,7 @@ Front beams status is signalled setting or clearing bits in the 1st byte of this
 <tbody>
   <tr>
     <td>0x286</td>
-    <td>&lt;0x10+status&gt;</td>
+    <td>&lt;status&gt;</td>
     <td colspan="7">(unspecified)</td>
   </tr>
 </tbody>
@@ -349,6 +351,10 @@ Status is a bitmask: the 1st byte is the algebraic sum of 0x10 and these conditi
   </tr>
 </thead>
 <tbody>
+  <tr>
+    <td>Handbrake</td>
+    <td>0x10</td>
+  </tr>
   <tr>
     <td>Parking lights / low beams</td>
     <td>0x80</td>
