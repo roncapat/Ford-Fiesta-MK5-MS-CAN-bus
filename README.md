@@ -101,6 +101,59 @@ When the radio is OFF this message is broadcasted.
 </tbody>
 </table>
 
+### Radio mode / seek buttons
+Apparently, only mode and seek buttons near the steering column issue commands over MS-CAN, while unfortunately it seems that volume buttons are not.
+
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x2D5</td>
+    <td colspan="1">(unspecified)</td>
+    <td>&lt;buttons&gt;</td>
+    <td colspan="6">(unspecified)</td>
+  </tr>
+</tbody>
+</table>
+
+buttons is a bitmask: the byte is the algebraic sum of these condition codes, whenever applicable.
+
+<table>
+<thead>
+  <tr>
+    <th>Status</th>
+    <th>Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Mode button</td>
+    <td>0x10</td>
+  </tr>
+  <tr>
+    <td>Seek up</td>
+    <td>0x40</td>
+  </tr>
+  <tr>
+    <td>Seek down</td>
+    <td>0x80</td>
+  </tr>
+</tbody>
+</table>
+
+
 ### Date & Time
 The car has an onboard RTC that works independently from the radio clock (it works even if the radio is disconnected at all). The date and time are broadcasted with 1 second resolution.
 <table class="tg">
@@ -434,9 +487,9 @@ Gas pedal position, engine RPM and speed (Km/h) are contained in the same packet
 <tbody>
   <tr>
     <td>0x201</td>
-    <td colspan="2">rpm</td>
+    <td colspan="2">&lt;rpm&gt;</td>
     <td colspan="2">(unspecified)</td>
-    <td colspan="2">speed</td>
+    <td colspan="2">&lt;speed&gt;</td>
     <td colspan="2">&lt;0x80+gas&gt;</td>
   </tr>
 </tbody>
@@ -467,7 +520,7 @@ Key can be either in position 1, 2 or 3.
 <tbody>
   <tr>
     <td>0x285</td>
-    <td colspan="1">key</td>
+    <td colspan="1">&lt;key&gt;</td>
     <td colspan="2">(unspecified)</td>
   </tr>
 </tbody>
@@ -499,7 +552,7 @@ Battery voltage is expressed in tenths of Volt.
   <tr>
     <td>0x428</td>
     <td colspan="1">(unspecified)</td>
-    <td colspan="1">battery</td>
+    <td colspan="1">&lt;battery&gt;</td>
     <td colspan="5">(unspecified)</td>
   </tr>
 </tbody>
