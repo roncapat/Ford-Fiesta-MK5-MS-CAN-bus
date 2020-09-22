@@ -183,8 +183,8 @@ The AirBag dashboard light is commanded either ON or OFF depending with the 5th 
 </tbody>
 </table>
 
-### Doors status
-Doors status is signalled setting or clearing bits in the 1st byte of this message.
+### Doors status / Lock / Reverse gear
+Doors status is signalled setting or clearing bits in the 1st byte of this message. Full lock of the doors is signalled by the 6th byte. Morover, this packet hold the status of the reverse gear in the 4th byte.
 
 <table>
 <thead>
@@ -203,13 +203,17 @@ Doors status is signalled setting or clearing bits in the 1st byte of this messa
 <tbody>
   <tr>
     <td>0x433</td>
-    <td>&lt;status&gt;</td>
-    <td colspan="7">(unspecified)</td>
+    <td>&lt;door_status&gt;</td>
+    <td colspan="2">(unspecified)</td>
+    <td>&lt;reverse_gear&gt;</td>
+    <td colspan="1">(unspecified)</td>
+    <td>&lt;lock&gt;</td>
+    <td colspan="2">(unspecified)</td>
   </tr>
 </tbody>
 </table>
 
-Status is a bitmask: the 1st byte is the algebraic sum of these condition codes, whenever applicable.
+door_status is a bitmask: the 1st byte is the algebraic sum of these condition codes, whenever applicable.
 
 <table>
 <thead>
@@ -234,6 +238,49 @@ Status is a bitmask: the 1st byte is the algebraic sum of these condition codes,
 </tbody>
 </table>
 
+reverse_gear can be interpreted as follows:
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">Status</th>
+    <th class="tg-c3ow">Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">ON</td>
+    <td class="tg-c3ow">0x02</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">OFF</td>
+    <td class="tg-c3ow">0x00</td>
+  </tr>
+
+</tbody>
+</table>
+
+lock can be interpreted as follows:
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">Status</th>
+    <th class="tg-c3ow">Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">LOCKED</td>
+    <td class="tg-c3ow">0x10</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">UNLOCKED</td>
+    <td class="tg-c3ow">0x20</td>
+  </tr>
+
+</tbody>
+</table>
 
 ### Arrows status
 
