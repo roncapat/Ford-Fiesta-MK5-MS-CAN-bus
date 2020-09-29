@@ -75,6 +75,32 @@ The extended format is composed by one header message containing the length of t
 </tbody>
 </table>
 
+### Radio station name
+
+The radio also shares the radio station name with a specific message.
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">ID</th>
+    <th class="tg-c3ow">1</th>
+    <th class="tg-c3ow">2</th>
+    <th class="tg-c3ow">3</th>
+    <th class="tg-c3ow">4</th>
+    <th class="tg-c3ow">5</th>
+    <th class="tg-c3ow">6</th>
+    <th class="tg-c3ow">7</th>
+    <th class="tg-c3ow">8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">0x1E9</td>
+    <td class="tg-c3ow" colspan="8">ASCII text</td>
+  </tr>
+</tbody>
+</table>
+
 ### Radio OFF
 When the radio is OFF this message is broadcasted.
 <table class="tg">
@@ -157,6 +183,7 @@ buttons is a bitmask: the byte is the algebraic sum of these condition codes, wh
 
 The radio unit broadcasts a message containing the current volume level.
 
+
 <table class="tg">
 <thead>
   <tr>
@@ -180,6 +207,74 @@ where the real volume level can be obtained as:
 
 ```
 volume = volume_raw/8
+```
+
+### CD track info
+
+When the unit is not in CD playback mode, the following message is emitted:
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">ID</th>
+    <th class="tg-c3ow">1</th>
+    <th class="tg-c3ow">2</th>
+    <th class="tg-c3ow">3</th>
+    <th class="tg-c3ow">4</th>
+    <th class="tg-c3ow">5</th>
+    <th class="tg-c3ow">6</th>
+    <th class="tg-c3ow">7</th>
+    <th class="tg-c3ow">8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">0x2DB</td>
+    <td class="tg-c3ow">0xFF</td>
+    <td class="tg-c3ow">0xFF</td>
+    <td class="tg-c3ow">0xFF</td>
+    <td class="tg-c3ow">0xFF</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">0x00</td>
+  </tr>
+</tbody>
+</table>
+
+Instead, during CD playback, the message contains the track id and current seek time:
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">ID</th>
+    <th class="tg-c3ow">1</th>
+    <th class="tg-c3ow">2</th>
+    <th class="tg-c3ow">3</th>
+    <th class="tg-c3ow">4</th>
+    <th class="tg-c3ow">5</th>
+    <th class="tg-c3ow">6</th>
+    <th class="tg-c3ow">7</th>
+    <th class="tg-c3ow">8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">0x2DB</td>
+    <td class="tg-c3ow">0xFF</td>
+    <td class="tg-c3ow">0xFF</td>
+    <td class="tg-c3ow" colspan="2">&lt;track_time&gt;</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">&lt;track_id&gt;</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">0x00</td>
+  </tr>
+</tbody>
+</table>
+
+where the current track time, in seconds, can be obtained like this:
+```
+track_seconds = track_time - 64
 ```
 
 ### Date & Time
