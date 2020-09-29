@@ -153,6 +153,34 @@ buttons is a bitmask: the byte is the algebraic sum of these condition codes, wh
 </tbody>
 </table>
 
+### Radio volume
+
+The radio unit broadcasts a message containing the current volume level.
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">ID</th>
+    <th class="tg-c3ow">1</th>
+    <th class="tg-c3ow">2</th>
+    <th class="tg-c3ow">3</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">0x2D8</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">&lt;volume_raw&gt;</td>
+    <td class="tg-c3ow">0x00</td>
+  </tr>
+</tbody>
+</table>
+
+where the real volume level can be obtained as:
+
+```
+volume = volume_raw/8
+```
 
 ### Date & Time
 The car has an onboard RTC that works independently from the radio clock (it works even if the radio is disconnected at all). The date and time are broadcasted with 1 second resolution.
