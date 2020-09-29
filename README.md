@@ -289,7 +289,8 @@ The radio unit tells informations about the CD presence.
     <th>2</th>
     <th>3</th>
     <th>4</th>
-  </tr>
+    <th>5</th>
+</tr>
 </thead>
 <tbody>
   <tr>
@@ -704,6 +705,110 @@ while speed in Km/h can be obtained with:
 ```
 km_h = speed/100
 ```
+
+### Brake pedal
+
+Brake pedal status is repeated in two different messages, with different codes.
+
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x420</td>
+    <td colspan="5">(unspecified)</td>
+    <td colspan="1">&lt;brake&gt;</td>
+    <td colspan="2">(unspecified)</td>
+  </tr>
+</tbody>
+</table>
+
+where brake can be interpreted as follows:
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">Brake status</th>
+    <th class="tg-c3ow">Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">Not pressed</td>
+    <td class="tg-c3ow">0x00</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Foot on pedal</td>
+    <td class="tg-c3ow">0x10</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Pressed</td>
+    <td class="tg-c3ow">0x30</td>
+  </tr>
+</tbody>
+</table>
+
+and 
+
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x360</td>
+    <td colspan="5">(unspecified)</td>
+    <td colspan="1">&lt;brake&gt;</td>
+    <td colspan="2">(unspecified)</td>
+  </tr>
+</tbody>
+</table>
+
+where brake can be interpreted as follows:
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">Brake status</th>
+    <th class="tg-c3ow">Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">Not pressed</td>
+    <td class="tg-c3ow">0x60</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Foot on pedal</td>
+    <td class="tg-c3ow">0x68</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Pressed</td>
+    <td class="tg-c3ow">0x78</td>
+  </tr>
+</tbody>
+</table>
 
 ### Key position
 
