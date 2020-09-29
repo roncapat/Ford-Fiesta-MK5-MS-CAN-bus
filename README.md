@@ -14,6 +14,25 @@ Personally, I used a [SeedStudio CANbus Shield](https://wiki.seeedstudio.com/CAN
 ## Results
 Bus speed is 125 KBPS.
 
+The IDs of either partially or fully decoded messages are:
+- 0x080
+- 0x1e9
+- 0x201
+- 0x265
+- 0x285
+- 0x286
+- 0x2d5
+- 0x2d8
+- 0x2da
+- 0x2db
+- 0x360
+- 0x420
+- 0x428
+- 0x433
+- 0x460
+- 0x4c0
+- 0x4f3
+
 ### Text to LCD screen
 The radio sends text to the dashboard LCD using either a short message format or an extended message format. 
 
