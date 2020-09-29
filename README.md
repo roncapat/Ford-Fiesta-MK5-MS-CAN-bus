@@ -277,6 +277,84 @@ where the current track time, in seconds, can be obtained like this:
 track_seconds = track_time - 64
 ```
 
+### CD status
+
+The radio unit tells informations about the CD presence.
+
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x2DA</td>
+    <td>(unspecified)</td>
+    <td>&lt;cd_mode&gt;</td>
+    <td>0x00</td>
+    <td>&lt;cd_drive&gt;</td> 
+    <td>0x00</td> 
+  </tr>
+</tbody>
+</table>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">CD Mode</th>
+    <th class="tg-c3ow">Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">No CD inserted</td>
+    <td class="tg-c3ow">0x2A</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">CD inserted - playback</td>
+    <td class="tg-c3ow">0x4A</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">CD inserted - no playback</td>
+    <td class="tg-c3ow">0x6A</td>
+  </tr>
+</tbody>
+</table>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">CD Drive</th>
+    <th class="tg-c3ow">Code</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">No CD inserted</td>
+    <td class="tg-c3ow">0x23</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">CD loading</td>
+    <td class="tg-c3ow">0x21</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">CD inserted - no playback</td>
+    <td class="tg-c3ow">0x22</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">CD inserted - playback</td>
+    <td class="tg-c3ow">0x26</td>
+  </tr>
+</tbody>
+</table>
+
+
+
 ### Date & Time
 The car has an onboard RTC that works independently from the radio clock (it works even if the radio is disconnected at all). The date and time are broadcasted with 1 second resolution.
 <table class="tg">
