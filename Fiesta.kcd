@@ -1,0 +1,39 @@
+<NetworkDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kayak.2codeornot2code.org/1.0" xsi:noNamespaceSchemaLocation="Definition.xsd">
+	<Document name="Ford Fiesta MK5 MS-CAN" version="1.01" author="Patrick Roncagliolo" company="Patrick Roncagliolo" date="2020-10-01">
+  Ford Fiesta MK5
+	</Document> 
+<Bus name="MS-CAN" baudrate="125000">
+		 <Message id="0x080" name="Clock" length="6" interval="1000">
+			<Signal name="Year" offset="0" length="8">
+				<Value unit="a" intercept="2000" />
+			</Signal>
+			<Signal name="Month" offset="8" length="8">
+				<Value unit="mo" min="1" max="12"/>
+			</Signal>
+			<Signal name="Day" offset="16" length="8">
+				<Value unit="d" min="1" max="31"/>
+			</Signal>
+			<Signal name="Hour" offset="24" length="8">
+				<Value unit="h" min="0" max="23"/>
+			</Signal>
+			<Signal name="Minute" offset="32" length="8">
+				<Value unit="min" min="0" max="59"/>
+			</Signal>
+			<Signal name="Second" offset="40" length="8">
+				<Value unit="s" min="0" max="59"/>
+			</Signal>
+		 </Message>
+		 
+ 		 <Message id="0x201" name="Gas" length="8" interval="100">
+			<Signal name="RPM" offset="0" length="16" endianess="big">
+				<Value unit="rpm" min="0" max="5000"/>
+			</Signal>
+			<Signal name="Speed" offset="32" length="16" endianess="big">
+				<Value unit="km/h" slope="0.01" min="0" max ="180"/>
+			</Signal>
+			<Signal name="Gas pedal" offset="48" length="16" endianess="big">
+				<Value unit="&#37;" intercept="-0.25125632" slope="0.00196294" min="0" max="100"/>
+			</Signal>
+		 </Message>
+	</Bus>
+</NetworkDefinition>
