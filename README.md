@@ -31,6 +31,7 @@ The IDs of either partially or fully decoded messages are:
 - 0x433
 - 0x460
 - 0x4c0
+- 0x4c8
 - 0x4f3
 
 ### Text to LCD screen
