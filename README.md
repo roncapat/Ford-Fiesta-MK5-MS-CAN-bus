@@ -766,9 +766,9 @@ while speed in Km/h can be obtained with:
 km_h = speed/100
 ```
 
-### Brake pedal
+### Brake pedal / coolant temperature
 
-Brake pedal status is repeated in two different messages, with different codes.
+Brake pedal status is repeated in two different messages, with different codes. 
 
 <table>
 <thead>
@@ -787,7 +787,8 @@ Brake pedal status is repeated in two different messages, with different codes.
 <tbody>
   <tr>
     <td>0x420</td>
-    <td colspan="5">(unspecified)</td>
+    <td colspan="1">&lt;coolant&gt;</td>
+    <td colspan="4">(unspecified)</td>
     <td colspan="1">&lt;brake&gt;</td>
     <td colspan="2">(unspecified)</td>
   </tr>
@@ -818,6 +819,11 @@ where brake can be interpreted as follows:
   </tr>
 </tbody>
 </table>
+
+and coolant temperature can be obtained as follows:
+```
+coolant_degrees = coolant - 40
+```
 
 and 
 
