@@ -94,6 +94,44 @@ The extended format is composed by one header message containing the length of t
 </tbody>
 </table>
 
+this happens to be the [ISO-TP protocol (ISO 15765-2)](https://en.wikipedia.org/wiki/ISO_15765-2). For the sake of completeness, after the first extended frame message, an ACK message is received (as required by the ISO-TP flow control mechansim):
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">ID</th>
+    <th class="tg-c3ow">1</th>
+    <th class="tg-c3ow">2</th>
+    <th class="tg-c3ow">3</th>
+    <th class="tg-c3ow">4</th>
+    <th class="tg-c3ow">5</th>
+    <th class="tg-c3ow">6</th>
+    <th class="tg-c3ow">7</th>
+    <th class="tg-c3ow">8</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">0x4C8</td>
+    <td class="tg-c3ow">0x30</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">0x00</td>
+    <td class="tg-c3ow">0x00</td>
+</tr>
+</tbody>
+</table>
+
+where:
+- byte 1 (0x30) tells that the source is "clear to send" the next portions of the message; 
+- byte 2 (0x00) tells that frames are to be sent without flow control; 
+- byte 3 (0x00) tells to send as fast as the source can.
+
+Thanks to [/u/thatguy147 for the ISO-TP suggestion!](https://www.reddit.com/r/CarHacking/comments/j28skt/ford_fiesta_mk5_2006_mscan_hacking/g75hm5e?utm_source=share&utm_medium=web2x&context=3)
+
 ### Radio station name
 
 The radio also shares the radio station name with a specific message.
