@@ -34,6 +34,8 @@ The IDs of either partially or fully decoded messages are:
 - 0x4c8
 - 0x4f3
 
+A Kayak [.kcd file](Fiesta.kcd) definition file is included (incomplete).
+
 ### Text to LCD screen
 The radio sends text to the dashboard LCD using either a short message format or an extended message format. 
 
